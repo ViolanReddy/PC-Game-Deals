@@ -1,0 +1,144 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fb;
+    color: #222;
+}
+
+header {
+    background-color: #21a0e8;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+header p {
+    margin: 0;
+}
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: white;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.game-card h2 {
+    margin-top: 0;
+}
+
+.store {
+    color: #666;
+    font-size: 14px;
+}
+
+.sale-price {
+    color: #ec1919;
+    font-weight: bold;
+}
+
+.sale-tag {
+    display: inline-block;
+    background-color: #ec1919;
+    color: white;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.discount {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.discount-percent {
+    display: inline-block;
+    color: #ffff00;
+    background-color: #222;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+
+.filters,
+.cheapest {
+    background: white;
+    padding: 20px;
+    margin-bottom: 24px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.filters form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.filters input[type="text"] {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.sale-filter {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filters button {
+    padding: 10px 16px;
+    background: #3f3f97;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filters a {
+    color: #24243e;
+}
+
+.cheapest h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+.cheapest p {
+    margin-bottom: 0;
+    font-weight: bold;
+}

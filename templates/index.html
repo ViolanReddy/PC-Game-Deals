@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Game Deals</title>
+    <link rel="stylesheet"
+            href="{{ url_for('static', filename='styles.css') }}"> 
+</head>
+<body>
+    <header>
+        <h1>🎮PC Game Deals</h1>
+        <p>👾Find your game at a great price</p>
+    </header>
+
+     <main>
+        <section class="filters">
+            <form action="/" method="GET">
+                <label for="search">Search games</label>
+
+                <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    placeholder="Search by title (eg. 'hol', 'celeste')..."
+                    value="{{ search_word }}"
+                >
+
+                <label class="sale-filter">
+                    <input
+                        type="checkbox"
+                        name="sale_only"
+                        value="true"
+                        {% if sale_only %}checked{% endif %}
+                    >
+                    Show games on sale only
+                </label>
+
+                <button type="submit">Apply filters</button>
+                <a href="/">Clear filters</a>
+            </form>
+        </section>
+
+        {% if cheapest_game %}
+            <section class="cheapest">
+                <h2>Cheapest game in these results</h2>
+                <p>
+                    {{ cheapest_game.title }} —
+                    R{{ "%.2f"|format(get_current_price(cheapest_game)) }}
+                </p>
+            </section>
+        {% endif %}
+
+        <section class="games-grid">
+            {% for game in games %}
+                <article class="game-card">
+                    <h2>{{ game.title }}</h2>
+
+                    <p class="store">Store: {{ game.store }}</p>
+
+                    <p>
+                        Normal price:
+                        R{{ "%.2f"|format(game.normalPrice) }}
+                    </p>
+
+                    {% if game.salePrice < game.normalPrice %}
+                        <p class="sale-price">
+                            Current price:
+                            R{{ "%.2f"|format(game.salePrice) }}
+                        </p>
+
+                        <span class="sale-tag">ON SALE</span>
+
+                        <p class="discount">
+                            <div class="discount-percent">{{ calculate_discount(game) }}% off</div>
+                        </p>
+                    {% else %}
+                        <p>
+                            Current price:
+                            R{{ "%.2f"|format(game.normalPrice) }}
+                        </p>
+                    {% endif %}
+                </article>
+            {% else %}
+                <p>No games found. Try another search.</p>
+            {% endfor %}
+        </section>
+    </main>
+
+    <footer>
+        <p>PC Game Deals</p>
+    </footer>
+
+</body>
+</html>

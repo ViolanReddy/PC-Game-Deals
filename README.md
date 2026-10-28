@@ -127,6 +127,6 @@ Given more time, here are the top things I would love to add next:
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Violan Reddy
 
 Created with enthusiasm by a junior software engineer eager to learn, build, and receive constructive feedback. If you have any suggestions or feedback, feel free to reach out or submit a pull request!
